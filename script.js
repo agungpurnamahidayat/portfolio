@@ -9,3 +9,17 @@ nav.querySelectorAll('a').forEach(link => link.addEventListener('click', () => {
   toggle.setAttribute('aria-expanded', 'false');
 }));
 document.getElementById('year').textContent = new Date().getFullYear();
+// Pergantian tampilan screenshot pada kartu proyek
+(function () {
+  var img = document.getElementById("wmsShot");
+  var tabs = document.querySelectorAll(".shot-tabs button");
+  if (!img || !tabs.length) return;
+  tabs.forEach(function (btn) {
+    btn.addEventListener("click", function () {
+      img.src = btn.dataset.src;
+      img.alt = btn.dataset.alt;
+      tabs.forEach(function (b) { b.classList.remove("active"); });
+      btn.classList.add("active");
+    });
+  });
+})();
