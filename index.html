@@ -1,1113 +1,130 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Agung Purnama Hidayat | IT Support &amp; Fullstack Programmer</title>
-<meta name="description" content="Portfolio of Agung Purnama Hidayat, D3 Computer Technology graduate with experience in IT support, troubleshooting, networking, system integration, Python, PHP, web development, REST API, databases, and Git." />
-
-<!-- Open Graph -->
-<meta property="og:type" content="website" />
-<meta property="og:title" content="Agung Purnama Hidayat | IT Support & Fullstack Programmer" />
-<meta property="og:description" content="Portfolio of Agung Purnama Hidayat, D3 Computer Technology graduate with experience in IT support, troubleshooting, networking, Python, PHP, web development, REST API, databases, Git, IoT, and system integration." />
-<meta property="og:image" content="assets/og-image.png" />
-<meta property="og:url" content="https://agungpurnamahidayat.github.io/portfolio/" />
-
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230A0E13'/%3E%3Cpath d='M6 22 L6 14 M12 22 L12 10 M18 22 L18 16 M24 22 L24 7' stroke='%23E8A33D' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E" type="image/svg+xml" />
-
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
-
-<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js" defer></script>
-
-<style>
-  :root{
-    --bg: #0A0E13;
-    --surface: #10151D;
-    --surface-2: #161D27;
-    --border: #212B36;
-    --text: #E7ECF1;
-    --text-muted: #8998A6;
-    --text-faint: #566270;
-    --accent: #E8A33D;
-    --accent-soft: rgba(232,163,61,0.12);
-    --accent-2: #4C8DFF;
-    --accent-2-soft: rgba(76,141,255,0.12);
-    --ok: #3ED598;
-    --radius: 10px;
-    --maxw: 1180px;
-    --font-display: 'Space Grotesk', 'Inter', sans-serif;
-    --font-body: 'Inter', sans-serif;
-    --font-mono: 'JetBrains Mono', monospace;
-  }
-
-  *{ box-sizing: border-box; }
-  html{ scroll-behavior: smooth; }
-  @media (prefers-reduced-motion: reduce){
-    html{ scroll-behavior: auto; }
-    *{ animation-duration: 0.001ms !important; animation-iteration-count: 1 !important; transition-duration: 0.001ms !important; }
-  }
-
-  body{
-    margin:0;
-    background: var(--bg);
-    color: var(--text);
-    font-family: var(--font-body);
-    line-height: 1.6;
-    -webkit-font-smoothing: antialiased;
-  }
-
-  img{ max-width:100%; display:block; }
-  a{ color:inherit; text-decoration:none; }
-  ul{ margin:0; padding:0; list-style:none; }
-  h1,h2,h3,h4{ font-family: var(--font-display); margin:0; line-height:1.15; letter-spacing:-0.01em; }
-  p{ margin:0; }
-  button{ font-family:inherit; cursor:pointer; }
-
-  ::selection{ background: var(--accent); color:#161009; }
-
-  a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible{
-    outline: 2px solid var(--accent);
-    outline-offset: 3px;
-    border-radius: 4px;
-  }
-
-  .wrap{
-    max-width: var(--maxw);
-    margin: 0 auto;
-    padding: 0 24px;
-  }
-
-  .eyebrow{
-    font-family: var(--font-mono);
-    font-size: 12.5px;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: var(--accent);
-    display:flex;
-    align-items:center;
-    gap:10px;
-    margin-bottom: 14px;
-  }
-  .eyebrow .bars{ display:inline-flex; align-items:flex-end; gap:2px; height:12px; }
-  .eyebrow .bars i{ width:3px; background: var(--accent); display:block; border-radius:1px; }
-  .eyebrow .bars i:nth-child(1){ height:4px; }
-  .eyebrow .bars i:nth-child(2){ height:7px; }
-  .eyebrow .bars i:nth-child(3){ height:10px; }
-  .eyebrow .bars i:nth-child(4){ height:12px; }
-
-  section{ padding: 96px 0; border-bottom: 1px solid var(--border); }
-  section:last-of-type{ border-bottom:none; }
-  .section-head{ max-width: 640px; margin-bottom: 48px; }
-  .section-head h2{ font-size: clamp(28px, 4vw, 38px); font-weight:600; }
-  .section-head .sub{ color: var(--text-muted); margin-top:12px; font-size:15.5px; }
-
-  /* ---------- NAV ---------- */
-  header{
-    position: sticky; top:0; z-index: 100;
-    background: rgba(10,14,19,0.82);
-    backdrop-filter: blur(10px);
-    border-bottom: 1px solid var(--border);
-  }
-  .nav{
-    max-width: var(--maxw);
-    margin:0 auto;
-    padding: 16px 24px;
-    display:flex; align-items:center; justify-content:space-between;
-  }
-  .logo{
-    font-family: var(--font-mono);
-    font-weight:600;
-    font-size:15px;
-    display:flex; align-items:center; gap:10px;
-    color: var(--text);
-  }
-  .logo .mark{
-    width:30px; height:30px; border-radius:7px;
-    background: var(--surface-2); border:1px solid var(--border);
-    display:flex; align-items:center; justify-content:center;
-    color: var(--accent); font-size:12px; font-weight:700;
-  }
-  .nav-links{ display:flex; align-items:center; gap:30px; }
-  .nav-links a{
-    font-size:14px; color: var(--text-muted); font-weight:500;
-    transition: color .2s ease; position:relative;
-  }
-  .nav-links a:hover{ color: var(--text); }
-  .nav-links a.active{ color: var(--accent); }
-  .nav-cta{ display:flex; align-items:center; gap:12px; }
-  .hamburger{
-    display:none; background:none; border:1px solid var(--border);
-    width:40px; height:40px; border-radius:8px; color: var(--text);
-    align-items:center; justify-content:center;
-  }
-  .mobile-menu{
-    display:none; flex-direction:column; gap:2px;
-    background: var(--surface); border-bottom:1px solid var(--border);
-    padding: 8px 24px 18px;
-  }
-  .mobile-menu.open{ display:flex; }
-  .mobile-menu a{
-    padding: 12px 4px; color: var(--text-muted); font-size:15px;
-    border-bottom:1px solid var(--border);
-  }
-  .mobile-menu a:last-child{ border-bottom:none; }
-
-  /* buttons */
-  .btn{
-    display:inline-flex; align-items:center; justify-content:center; gap:8px;
-    padding: 12px 22px; border-radius: 8px; font-size:14.5px; font-weight:600;
-    border:1px solid transparent; transition: transform .15s ease, background .2s ease, border-color .2s ease;
-    white-space:nowrap;
-  }
-  .btn:active{ transform: scale(0.98); }
-  .btn-primary{ background: var(--accent); color:#171006; }
-  .btn-primary:hover{ background:#f0b357; }
-  .btn-ghost{ background: transparent; border-color: var(--border); color: var(--text); }
-  .btn-ghost:hover{ border-color: var(--accent); color: var(--accent); }
-  .btn-sm{ padding: 9px 16px; font-size:13.5px; }
-
-  /* ---------- HERO ---------- */
-  .hero{
-    padding: 84px 0 90px;
-    border-bottom: 1px solid var(--border);
-    position:relative; overflow:hidden;
-  }
-  .hero-grid{
-    display:grid; grid-template-columns: 1.15fr 0.85fr; gap: 56px; align-items:center;
-  }
-  .status-pill{
-    display:inline-flex; align-items:center; gap:8px;
-    font-family: var(--font-mono); font-size:12px; letter-spacing:0.04em;
-    color: var(--ok); background: rgba(62,213,152,0.08);
-    border:1px solid rgba(62,213,152,0.3); padding: 6px 12px; border-radius: 20px;
-    margin-bottom: 22px;
-  }
-  .status-pill .dot{ width:7px; height:7px; border-radius:50%; background: var(--ok); box-shadow: 0 0 0 3px rgba(62,213,152,0.18); }
-  .hero h1{
-    font-size: clamp(30px, 4.4vw, 46px); font-weight:700; color: var(--text);
-  }
-  .hero h1 .hl{ color: var(--accent); }
-  .hero-desc{
-    margin-top: 22px; color: var(--text-muted); font-size:16.5px; max-width: 560px;
-  }
-  .hero-actions{ display:flex; flex-wrap:wrap; gap:14px; margin-top: 32px; }
-  .hero-socials{ display:flex; gap:14px; margin-top: 30px; }
-  .icon-link{
-    width:38px; height:38px; border-radius:8px; border:1px solid var(--border);
-    display:flex; align-items:center; justify-content:center; color: var(--text-muted);
-    transition: all .2s ease;
-  }
-  .icon-link:hover{ color: var(--accent); border-color: var(--accent); }
-
-  .telemetry-card{
-    background: var(--surface); border:1px solid var(--border); border-radius: 14px;
-    padding: 22px; position:relative;
-  }
-  .telemetry-card .tc-head{
-    display:flex; justify-content:space-between; align-items:center;
-    font-family: var(--font-mono); font-size:11.5px; color: var(--text-faint);
-    letter-spacing:0.06em; text-transform:uppercase; margin-bottom:18px;
-  }
-  .telemetry-card .tc-head span.live{ color: var(--ok); }
-  .signal-row{ display:flex; align-items:center; justify-content:space-between; padding:10px 0; border-bottom:1px dashed var(--border); }
-  .signal-row:last-child{ border-bottom:none; }
-  .signal-row .label{ font-family: var(--font-mono); font-size:13px; color: var(--text-muted); }
-  .signal-row .val{ font-family: var(--font-mono); font-size:13px; color: var(--text); }
-  .rssi-bars{ display:flex; align-items:flex-end; gap:3px; height:16px; }
-  .rssi-bars i{ width:5px; background: var(--border); border-radius:1px; display:block; }
-  .rssi-bars i.on{ background: var(--accent-2); }
-  .rssi-bars i:nth-child(1){ height:5px; } .rssi-bars i:nth-child(2){ height:8px; }
-  .rssi-bars i:nth-child(3){ height:11px; } .rssi-bars i:nth-child(4){ height:14px; }
-  .rssi-bars i:nth-child(5){ height:16px; }
-  .telemetry-note{ margin-top:16px; font-size:11.5px; color: var(--text-faint); font-family: var(--font-mono); }
-
-  /* fade in on scroll */
-  .reveal{ opacity:0; transform: translateY(16px); transition: opacity .6s ease, transform .6s ease; }
-  .reveal.in{ opacity:1; transform:none; }
-
-  /* ---------- ABOUT ---------- */
-  .about-grid{ display:grid; grid-template-columns: 1.3fr 1fr; gap: 48px; align-items:start; }
-  .about-text p{ color: var(--text-muted); font-size:15.5px; margin-bottom:16px; }
-  .about-text p:last-child{ margin-bottom:0; }
-  .focus-tags{ display:flex; flex-wrap:wrap; gap:8px; margin-top:20px; }
-  .focus-tag{
-    font-family: var(--font-mono); font-size:12px; color: var(--text-muted);
-    border:1px solid var(--border); padding:6px 12px; border-radius:20px;
-  }
-  .spec-sheet{
-    background: var(--surface); border:1px solid var(--border); border-radius: 14px; overflow:hidden;
-  }
-  .spec-sheet .ss-head{
-    padding:16px 20px; border-bottom:1px solid var(--border);
-    font-family: var(--font-mono); font-size:11.5px; letter-spacing:0.06em; text-transform:uppercase; color: var(--text-faint);
-  }
-  .spec-row{ display:flex; justify-content:space-between; padding:14px 20px; border-bottom:1px solid var(--border); gap:16px; }
-  .spec-row:last-child{ border-bottom:none; }
-  .spec-row .k{ color: var(--text-faint); font-size:13.5px; }
-  .spec-row .v{ color: var(--text); font-size:13.5px; font-weight:500; text-align:right; }
-  .badge-cumlaude{
-    display:inline-flex; align-items:center; gap:6px; font-family: var(--font-mono); font-size:11px;
-    color:#171006; background: var(--accent); padding:3px 9px; border-radius:12px; font-weight:600;
-  }
-
-  /* ---------- TIMELINE / EXPERIENCE ---------- */
-  .exp-card{
-    background: var(--surface); border:1px solid var(--border); border-radius:14px;
-    padding: 32px; position:relative; overflow:hidden;
-  }
-  .exp-card::before{
-    content:""; position:absolute; left:0; top:0; bottom:0; width:3px; background: var(--accent-2);
-  }
-  .exp-top{ display:flex; flex-wrap:wrap; justify-content:space-between; gap:12px; margin-bottom:18px; }
-  .exp-role{ font-size:20px; font-weight:600; font-family: var(--font-display); }
-  .exp-org{ color: var(--accent-2); font-size:14.5px; margin-top:4px; }
-  .exp-period{
-    font-family: var(--font-mono); font-size:12.5px; color: var(--text-faint);
-    border:1px solid var(--border); padding:6px 12px; border-radius:20px; height:fit-content; white-space:nowrap;
-  }
-  .exp-list{ display:grid; gap:12px; margin-top:6px; }
-  .exp-list li{ display:flex; gap:12px; color: var(--text-muted); font-size:14.5px; }
-  .exp-list li i.dot-icon{ color: var(--accent-2); flex-shrink:0; margin-top:6px; width:6px; height:6px; border-radius:50%; background: var(--accent-2); display:block; }
-  .exp-tags{ display:flex; flex-wrap:wrap; gap:8px; margin-top:22px; }
-  .tech-tag{
-    font-family: var(--font-mono); font-size:11.5px; color: var(--accent-2);
-    background: var(--accent-2-soft); border:1px solid rgba(76,141,255,0.25);
-    padding:4px 10px; border-radius:6px;
-  }
-
-  /* ---------- EDUCATION ---------- */
-  .edu-card{
-    background: var(--surface); border:1px solid var(--border); border-radius:14px; padding:32px;
-    display:flex; flex-wrap:wrap; justify-content:space-between; gap:24px;
-  }
-  .edu-left h3{ font-size:20px; font-weight:600; }
-  .edu-left .deg{ color: var(--text-muted); margin-top:6px; font-size:15px; }
-  .edu-left .desc{ color: var(--text-muted); margin-top:14px; font-size:14.5px; max-width:560px; }
-  .edu-right{ text-align:right; min-width:160px; }
-  .edu-right .period{ font-family: var(--font-mono); font-size:12.5px; color: var(--text-faint); }
-  .edu-right .gpa{ font-family: var(--font-mono); font-size:26px; color: var(--accent); margin-top:8px; font-weight:600; }
-  .edu-right .gpa small{ font-size:12px; color: var(--text-faint); display:block; font-weight:400; margin-top:2px; }
-
-  /* ---------- PROJECTS ---------- */
-  .featured-project{
-    background: var(--surface); border:1px solid var(--border); border-radius:16px; padding:36px; margin-bottom:28px;
-  }
-  .fp-top{ display:flex; flex-wrap:wrap; gap:14px; justify-content:space-between; align-items:flex-start; margin-bottom:20px; }
-  .fp-flag{
-    font-family: var(--font-mono); font-size:11px; letter-spacing:0.06em; text-transform:uppercase;
-    color:#171006; background: var(--accent); padding:5px 10px; border-radius:6px; font-weight:700;
-  }
-  .fp-title{ font-size: clamp(21px,3vw,27px); font-weight:600; margin-top:14px; }
-  .fp-desc{ color: var(--text-muted); margin-top:14px; font-size:15px; max-width:760px; }
-  .fp-body{ display:grid; grid-template-columns: 1fr 1fr; gap:32px; margin-top:26px; }
-  .fp-list{ display:grid; gap:12px; }
-  .fp-list li{ display:flex; gap:10px; color: var(--text-muted); font-size:14px; }
-  .fp-list li i.dot-icon{ flex-shrink:0; margin-top:6px; width:6px; height:6px; border-radius:50%; background: var(--accent); display:block; }
-
-  .pipeline{
-    background: var(--surface-2); border:1px solid var(--border); border-radius:12px; padding:20px;
-  }
-  .pipeline-title{ font-family: var(--font-mono); font-size:11px; text-transform:uppercase; letter-spacing:0.06em; color: var(--text-faint); margin-bottom:16px; }
-  .pipeline-flow{ display:flex; flex-wrap:wrap; align-items:center; gap:8px; }
-  .pipeline-step{
-    font-family: var(--font-mono); font-size:12px; color: var(--text); background: var(--bg);
-    border:1px solid var(--border); padding:8px 12px; border-radius:8px; white-space:nowrap;
-  }
-  .pipeline-arrow{ color: var(--accent); font-size:14px; }
-
-  .placeholder-box{
-    border:1px dashed var(--border); border-radius:10px; padding:14px; margin-top:20px;
-    display:flex; flex-wrap:wrap; gap:10px;
-  }
-  .placeholder-chip{
-    font-family: var(--font-mono); font-size:11.5px; color: var(--text-faint);
-    display:flex; align-items:center; gap:6px; border:1px solid var(--border); padding:6px 10px; border-radius:6px;
-  }
-
-  .project-grid{ display:grid; grid-template-columns: repeat(2, 1fr); gap: 22px; }
-  .project-card{
-    background: var(--surface); border:1px solid var(--border); border-radius:14px; padding:26px;
-    display:flex; flex-direction:column; cursor:pointer; transition: border-color .2s ease, transform .2s ease;
-  }
-  .project-card:hover{ border-color: var(--accent-2); transform: translateY(-3px); }
-  .project-card .pc-thumb{
-    height:190px; border-radius:10px; background:
-      repeating-linear-gradient(135deg, var(--surface-2), var(--surface-2) 10px, var(--bg) 10px, var(--bg) 20px);
-    border:1px solid var(--border); display:flex; align-items:center; justify-content:center; margin-bottom:18px;
-    color: var(--text-faint); font-family: var(--font-mono); font-size:11px; text-align:center; padding:8px;
-    overflow:hidden;
-  }
-  .project-card .pc-thumb img{
-    width:100%; height:100%; object-fit:contain; object-position:center; border-radius:8px; display:block;
-    background: var(--bg);
-  }
-  .project-card h3{ font-size:16.5px; font-weight:600; }
-  .project-card p{ color: var(--text-muted); font-size:13.8px; margin-top:10px; flex:1; }
-  .project-card .pc-tags{ display:flex; flex-wrap:wrap; gap:6px; margin-top:16px; }
-  .project-card .pc-tags span{ font-family: var(--font-mono); font-size:10.8px; color: var(--text-faint); border:1px solid var(--border); padding:3px 8px; border-radius:5px; }
-  .project-card .pc-more{ margin-top:16px; font-size:13px; color: var(--accent-2); display:flex; align-items:center; gap:6px; font-weight:500; }
-
-  /* modal */
-  .modal-overlay{
-    position:fixed; inset:0; background: rgba(6,8,11,0.75); backdrop-filter: blur(3px);
-    display:none; align-items:flex-start; justify-content:center; padding: 60px 20px; z-index:200; overflow-y:auto;
-  }
-  .modal-overlay.open{ display:flex; }
-  .modal{
-    background: var(--surface); border:1px solid var(--border); border-radius:16px; max-width:640px; width:100%;
-    padding:32px; position:relative;
-  }
-  .modal-close{
-    position:absolute; top:18px; right:18px; width:34px; height:34px; border-radius:8px;
-    border:1px solid var(--border); background: transparent; color: var(--text-muted); display:flex; align-items:center; justify-content:center;
-  }
-  .modal-gallery{
-    display:grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap:10px; margin-top:20px;
-  }
-  .modal-gallery img{
-    width:100%; height:180px; object-fit:contain; object-position:center; border-radius:8px;
-    border:1px solid var(--border); background: var(--bg);
-  }
-  .modal-close:hover{ color: var(--accent); border-color: var(--accent); }
-  .modal h3{ font-size:22px; font-weight:600; padding-right:40px; }
-  .modal .m-desc{ color: var(--text-muted); margin-top:14px; font-size:14.5px; }
-  .modal .m-list{ display:grid; gap:10px; margin-top:18px; }
-  .modal .m-list li{ display:flex; gap:10px; color: var(--text-muted); font-size:14px; }
-  .modal .m-list li i.dot-icon{ flex-shrink:0; margin-top:6px; width:6px; height:6px; border-radius:50%; background: var(--accent-2); display:block; }
-  .modal .m-tags{ display:flex; flex-wrap:wrap; gap:8px; margin-top:20px; }
-
-  /* ---------- SKILLS ---------- */
-  .skills-grid{ display:grid; grid-template-columns: repeat(3, 1fr); gap:20px; }
-  .skill-cat{ background: var(--surface); border:1px solid var(--border); border-radius:14px; padding:24px; }
-  .skill-cat-head{ display:flex; align-items:center; gap:10px; margin-bottom:18px; }
-  .skill-cat-head .ic{ width:34px; height:34px; border-radius:8px; background: var(--surface-2); display:flex; align-items:center; justify-content:center; color: var(--accent); }
-  .skill-cat-head h3{ font-size:15.5px; font-weight:600; }
-  .skill-badges{ display:flex; flex-wrap:wrap; gap:8px; }
-  .skill-badge{
-    font-family: var(--font-mono); font-size:12px; color: var(--text-muted);
-    border:1px solid var(--border); padding:6px 11px; border-radius:6px; background: var(--surface-2);
-  }
-
-  /* ---------- PRACTICUM ---------- */
-  .practicum-wrap{ display:grid; grid-template-columns: 1fr 1fr; gap:40px; }
-  .practicum-desc p{ color: var(--text-muted); font-size:15px; margin-bottom:14px; }
-  .course-grid{ display:grid; grid-template-columns: 1fr 1fr; gap:10px; }
-  .course-chip{
-    background: var(--surface); border:1px solid var(--border); border-radius:9px; padding:12px 14px;
-    font-size:13.3px; color: var(--text); display:flex; gap:10px; align-items:flex-start;
-  }
-  .course-chip i.dot-icon{ margin-top:6px; width:5px; height:5px; border-radius:50%; background: var(--accent); flex-shrink:0; display:block; }
-
-  /* ---------- ACHIEVEMENT ---------- */
-  .achieve-card{
-    background: var(--surface); border:1px solid var(--border); border-radius:14px; padding:32px;
-    display:flex; flex-wrap:wrap; gap:24px; justify-content:space-between; align-items:center;
-  }
-  .achieve-left{ display:flex; gap:18px; align-items:flex-start; }
-  .achieve-icon{ width:52px; height:52px; border-radius:10px; background: var(--accent-soft); border:1px solid rgba(232,163,61,0.3); display:flex; align-items:center; justify-content:center; color: var(--accent); flex-shrink:0; }
-  .achieve-left h3{ font-size:17px; font-weight:600; }
-  .achieve-left .achieve-type{ font-family: var(--font-mono); font-size:11.5px; color: var(--accent); text-transform:uppercase; letter-spacing:0.05em; margin-bottom:8px; }
-  .achieve-left p{ color: var(--text-muted); font-size:13.8px; margin-top:8px; max-width:440px; }
-
-  /* ---------- FEATURED ---------- */
-  .feat-grid{ display:grid; grid-template-columns: repeat(3, 1fr); gap:20px; }
-  .feat-card{
-    background: var(--surface); border:1px solid var(--border); border-radius:14px; padding:24px;
-    transition: border-color .2s ease, transform .2s ease;
-  }
-  .feat-card:hover{ border-color: var(--accent); transform: translateY(-3px); }
-  .feat-card .fc-thumb{
-    height:90px; border-radius:9px; margin-bottom:16px; border:1px solid var(--border);
-    background: linear-gradient(135deg, var(--surface-2), var(--bg));
-    display:flex; align-items:center; justify-content:center; color: var(--text-faint);
-  }
-  .feat-card h4{ font-size:15px; font-weight:600; display:flex; align-items:center; gap:8px; }
-  .feat-card p{ color: var(--text-muted); font-size:13px; margin-top:8px; }
-  .feat-card .fc-link{ margin-top:14px; font-size:12.5px; color: var(--accent-2); display:flex; align-items:center; gap:6px; }
-
-  /* ---------- CONTACT ---------- */
-  .contact-grid{ display:grid; grid-template-columns: 0.9fr 1.1fr; gap:48px; }
-  .contact-info p.lead{ color: var(--text-muted); font-size:15.5px; margin-bottom:26px; }
-  .contact-item{ display:flex; align-items:center; gap:14px; padding:16px 0; border-bottom:1px solid var(--border); }
-  .contact-item:last-child{ border-bottom:none; }
-  .contact-item .ci-icon{ width:38px; height:38px; border-radius:8px; background: var(--surface); border:1px solid var(--border); display:flex; align-items:center; justify-content:center; color: var(--accent); flex-shrink:0; }
-  .contact-item .ci-label{ font-family: var(--font-mono); font-size:11px; color: var(--text-faint); text-transform:uppercase; letter-spacing:0.05em; }
-  .contact-item .ci-value{ font-size:14.5px; color: var(--text); margin-top:2px; word-break:break-all; }
-
-  .contact-form{ background: var(--surface); border:1px solid var(--border); border-radius:14px; padding:30px; }
-  .form-row{ margin-bottom:18px; }
-  .form-row label{ display:block; font-size:13px; color: var(--text-muted); margin-bottom:8px; font-weight:500; }
-  .form-row input, .form-row textarea{
-    width:100%; background: var(--bg); border:1px solid var(--border); border-radius:8px;
-    padding:12px 14px; color: var(--text); font-family: var(--font-body); font-size:14px; resize:vertical;
-  }
-  .form-row input:focus, .form-row textarea:focus{ border-color: var(--accent); outline:none; }
-  .form-note{ font-size:12px; color: var(--text-faint); margin-top:6px; }
-  .form-status{ font-size:13px; margin-top:14px; color: var(--ok); display:none; }
-  .form-status.show{ display:block; }
-
-  /* ---------- FOOTER ---------- */
-  footer{ padding: 40px 0; }
-  .footer-wrap{ display:flex; flex-wrap:wrap; justify-content:space-between; align-items:center; gap:16px; }
-  .footer-wrap .fnote{ font-size:13px; color: var(--text-faint); }
-  .footer-socials{ display:flex; gap:12px; }
-
-  /* ---------- RESPONSIVE ---------- */
-  @media (max-width: 900px){
-    .hero-grid{ grid-template-columns:1fr; }
-    .about-grid{ grid-template-columns:1fr; }
-    .fp-body{ grid-template-columns:1fr; }
-    .project-grid{ grid-template-columns:1fr; }
-    .skills-grid{ grid-template-columns: 1fr 1fr; }
-    .practicum-wrap{ grid-template-columns:1fr; }
-    .feat-grid{ grid-template-columns: 1fr 1fr; }
-    .contact-grid{ grid-template-columns:1fr; }
-  }
-  @media (max-width: 640px){
-    .nav-links{ display:none; }
-    .hamburger{ display:flex; }
-    section{ padding: 64px 0; }
-    .hero{ padding: 52px 0 64px; }
-    .skills-grid{ grid-template-columns: 1fr; }
-    .feat-grid{ grid-template-columns: 1fr; }
-    .course-grid{ grid-template-columns: 1fr; }
-    .edu-card{ flex-direction:column; }
-    .edu-right{ text-align:left; }
-    .exp-top{ flex-direction:column; }
-    .fp-top{ flex-direction:column; }
-    .achieve-card{ flex-direction:column; align-items:flex-start; }
-  }
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Portofolio Agung Purnama Hidayat — IT Support, IT Infrastructure, Networking, dan Web Development.">
+  <title>Agung Purnama Hidayat | IT Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <div class="ambient ambient-one"></div><div class="ambient ambient-two"></div>
+  <header class="topbar">
+    <a class="brand" href="#home"><span class="brand-mark">A</span><span>AGUNG<span class="muted">.DEV</span></span></a>
+    <button class="menu-toggle" aria-label="Buka navigasi" aria-expanded="false">☰</button>
+    <nav class="nav">
+      <a href="#about">Tentang</a><a href="#experience">Pengalaman</a><a href="#projects">Proyek</a><a href="#skills">Keahlian</a><a href="#contact" class="nav-cta">Kontak ↗</a>
+    </nav>
+  </header>
 
-<header>
-  <nav class="nav">
-    <a href="#home" class="logo"><span class="mark">APH</span> Agung P. Hidayat</a>
-    <div class="nav-links" id="navLinks">
-      <a href="#home">Home</a>
-      <a href="#about">About</a>
-      <a href="#experience">Experience</a>
-      <a href="#education">Education</a>
-      <a href="#projects">Projects</a>
-      <a href="#skills">Skills</a>
-      <a href="#contact">Contact</a>
-    </div>
-    <div class="nav-cta" style="display:flex; align-items:center; gap:12px;">
-      <a href="#contact" class="btn btn-primary btn-sm" style="display:none" id="navContactBtn">Contact Me</a>
-      <button class="hamburger" id="hamburgerBtn" aria-label="Open menu" aria-expanded="false">
-        <i data-lucide="menu"></i>
-      </button>
-    </div>
-  </nav>
-  <div class="mobile-menu" id="mobileMenu">
-    <a href="#home">Home</a>
-    <a href="#about">About</a>
-    <a href="#experience">Experience</a>
-    <a href="#education">Education</a>
-    <a href="#projects">Projects</a>
-    <a href="#skills">Skills</a>
-    <a href="#contact">Contact</a>
-  </div>
-</header>
-
-<main>
-
-  <!-- HERO -->
-  <section class="hero" id="home">
-    <div class="wrap hero-grid">
-      <div>
-        <div class="status-pill"><span class="dot"></span> OPEN TO WORK — IT SUPPORT / FULLSTACK / SOFTWARE DEVELOPMENT</div>
-        <h1>D3 Computer Technology Graduate <span class="hl">|</span> IT Support <span class="hl">|</span> Fullstack Programmer</h1>
-        <p class="hero-desc">I am a Computer Technology graduate from Telkom University with hands-on experience in IT support, system troubleshooting, networking, system integration, and web/software development. I have worked with Python, PHP, JavaScript, Flask, Laravel, REST API, MySQL, MongoDB, Git, Windows, Linux, and network technologies. I am currently seeking an entry-level opportunity in IT support, technical support, fullstack, or software development.</p>
+  <main>
+    <section class="hero section" id="home">
+      <div class="hero-copy">
+        <div class="eyebrow"><span class="pulse"></span> OPEN TO IT OPPORTUNITIES</div>
+        <p class="hero-kicker">Halo, saya</p>
+        <h1>Agung Purnama<br><span>Hidayat.</span></h1>
+        <h2 class="role-line">IT Support <i>·</i> Networking <i>·</i> Web Development</h2>
+        <p class="hero-text">Lulusan D3 Teknologi Komputer yang tertarik pada troubleshooting, infrastruktur IT, jaringan komputer, dan pengembangan aplikasi web. Senang belajar, memecahkan masalah, dan membangun solusi yang bermanfaat.</p>
         <div class="hero-actions">
-          <a href="#projects" class="btn btn-primary">View Projects</a>
-          <a href="#contact" class="btn btn-ghost"><i data-lucide="mail" style="width:16px;height:16px;"></i> Contact Me</a>
+          <a class="button button-primary" href="#projects">Lihat Proyek <span>↘</span></a>
+          <a class="button button-ghost" href="#contact">Hubungi Saya</a>
+          <a class="button button-ghost" href="assets/CV_Agung_Purnama_Hidayat.pdf" download="CV_Agung_Purnama_Hidayat.pdf">Download CV <span>↓</span></a>
         </div>
-        <div class="hero-socials">
-          
-          <a href="https://github.com/agungpurnamahidayat" class="icon-link" aria-label="GitHub" target="_blank" rel="noopener"><i data-lucide="github" style="width:17px;height:17px;"></i></a>
-          <a href="mailto:agungpurnahidayat@gmail.com" class="icon-link" aria-label="Email"><i data-lucide="mail" style="width:17px;height:17px;"></i></a>
-        </div>
+        <div class="hero-meta"><span>📍 Karawang, Indonesia</span><span>🎓 D3 Teknologi Komputer</span></div>
       </div>
+      <div class="hero-visual">
+        <div class="orbit orbit-a"></div><div class="orbit orbit-b"></div>
+        <div class="profile-card">
+          <div class="card-top"><span>PROFILE.SYS</span><span class="live-dot">● ONLINE</span></div>
+          <img class="avatar" src="assets/profile.jpg" alt="Foto profil Agung Purnama Hidayat">
+          <h3>IT Enthusiast</h3><p>Curious mind. Practical solutions.</p>
+          <div class="terminal">
+            <div><b>01</b> <span class="code-green">const</span> focus = [</div>
+            <div class="indent"><span>"IT Support",</span></div>
+            <div class="indent"><span>"Networking",</span></div>
+            <div class="indent"><span>"Web Development"</span></div>
+            <div>];</div>
+            <div class="terminal-cursor">▌</div>
+          </div>
+          <div class="card-bottom"><span>IPK</span><strong>3.67 / 4.00</strong><span class="badge">CUMLAUDE</span></div>
+        </div>
+        <div class="float-chip chip-one">⌘ Troubleshooting</div><div class="float-chip chip-two">⌁ Network</div>
+      </div>
+      <div class="scroll-note">SCROLL TO EXPLORE <span>↓</span></div>
+    </section>
 
-      <div class="telemetry-card reveal">
-        <div class="tc-head"><span>Adaptive Telemetry — Concept View</span><span class="live">● Illustrative</span></div>
-        <div class="signal-row">
-          <span class="label">RSSI</span>
-          <span class="rssi-bars"><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i></span>
-        </div>
-        <div class="signal-row">
-          <span class="label">SNR</span>
-          <span class="val">Monitored per test run</span>
-        </div>
-        <div class="signal-row">
-          <span class="label">Antenna Path</span>
-          <span class="val">Adaptive switching</span>
-        </div>
-        <div class="signal-row">
-          <span class="label">Link</span>
-          <span class="val">ESP32 · LoRa SX1278</span>
-        </div>
-        <div class="signal-row">
-          <span class="label">Logging</span>
-          <span class="val">Python → CSV → Pandas</span>
-        </div>
-        <p class="telemetry-note">// Visual reference inspired by the Adaptive Telemetry project below — not live device data.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- ABOUT -->
-  <section id="about">
-    <div class="wrap">
-      <div class="section-head reveal">
-        <div class="eyebrow"><span class="bars"><i></i><i></i><i></i><i></i></span> About</div>
-        <h2>Supporting systems and building software</h2>
-      </div>
+    <section class="section about-section" id="about">
+      <div class="section-label">01 / ABOUT ME</div>
+      <div class="section-heading"><h2>Mengenal <span>saya.</span></h2><p>Fondasi teknis, kemauan belajar, dan pendekatan pemecahan masalah.</p></div>
       <div class="about-grid">
-        <div class="about-text reveal">
-          <p>I am a graduate of D3 Teknologi Komputer, Telkom University, with hands-on experience in IT support, troubleshooting, computer networking, system integration, programming, web development, and databases.</p>
-          <p>I worked as a Network Engineer Intern at the Research and Development Center of Aviation and Avionics Technology (RA-ATAP), where I supported communication and monitoring systems, performed system testing and troubleshooting, analyzed technical issues, and documented configurations and test results.</p>
-          <p>Alongside my internship, I served as a Practicum Assistant, supporting students during practical sessions, explaining technical concepts, troubleshooting laboratory setups, and assisting with networking and computer-related practical work.</p>
-          <p>I'm looking to grow my career in IT support and software development, while leveraging my background in systems, networking, troubleshooting, databases, and technical problem solving.</p>
-          <div class="focus-tags">
-            <span class="focus-tag">IT Support</span>
-            <span class="focus-tag">Networking</span>
-            <span class="focus-tag">Network Security</span>
-            <span class="focus-tag">Cybersecurity</span>
-            <span class="focus-tag">Technical Support</span>
-            <span class="focus-tag">Software Development</span>
-            <span class="focus-tag">IoT</span>
-          </div>
-        </div>
-        <div class="spec-sheet reveal">
-          <div class="ss-head">Quick Facts</div>
-          <div class="spec-row"><span class="k">Education</span><span class="v">D3 Teknologi Komputer — Telkom University</span></div>
-          <div class="spec-row"><span class="k">Graduation</span><span class="v">July 2026</span></div>
-          <div class="spec-row"><span class="k">GPA</span><span class="v">3.67 / 4.00 <span class="badge-cumlaude">Cum Laude</span></span></div>
-          <div class="spec-row"><span class="k">Primary Focus</span><span class="v">IT Support &amp; Software Development</span></div>
-          <div class="spec-row"><span class="k">Technical Foundation</span><span class="v">Networking, IoT, System Integration</span></div>
-          <div class="spec-row"><span class="k">Status</span><span class="v">Open to entry-level IT &amp; software roles</span></div>
+        <div class="about-main"><p>Saya merupakan lulusan <strong>D3 Teknologi Komputer Telkom University</strong> dengan IPK 3,67 dan predikat cumlaude. Saya memiliki dasar di bidang jaringan komputer, sistem komputer, pemrograman, dan Internet of Things.</p><p>Melalui pengalaman magang sebagai Network Engineer Intern dan proyek pengembangan aplikasi, saya belajar melakukan pemeriksaan teknis secara bertahap, mendokumentasikan pekerjaan, serta berkolaborasi untuk menyelesaikan kendala.</p></div>
+        <div class="stat-grid">
+          <div class="stat"><strong>3.67</strong><span>IPK / 4.00</span></div>
+          <div class="stat"><strong>2</strong><span>Semester magang</span></div>
+          <div class="stat"><strong>D3</strong><span>Teknologi Komputer</span></div>
+          <div class="stat"><strong>2026</strong><span>Tahun kelulusan</span></div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- EXPERIENCE -->
-  <section id="experience">
-    <div class="wrap">
-      <div class="section-head reveal">
-        <div class="eyebrow"><span class="bars"><i></i><i></i><i></i><i></i></span> Experience</div>
-        <h2>Hands-on experience in support &amp; systems</h2>
-        <p class="sub">Professional experience in technical troubleshooting, system integration, networking, testing, data communication, and monitoring systems.</p>
+    <section class="section" id="experience">
+      <div class="section-label">02 / EXPERIENCE & EDUCATION</div>
+      <div class="section-heading"><h2>Perjalanan <span>saya.</span></h2><p>Pengalaman yang membentuk fondasi teknis dan cara kerja saya.</p></div>
+      <div class="timeline">
+        <article class="timeline-item">
+          <div class="timeline-date">AGUSTUS 2025 — MEI 2026</div>
+          <div class="timeline-content"><span class="tag">INTERNSHIP</span><h3>Network Engineer Intern</h3><h4>CoE SMICS (Center of Excellence for Smart Mobility, Integration, and Connectivity Systems) — sebelumnya RA-ATAP</h4><ul><li>Membantu konfigurasi dan troubleshooting komunikasi telemetri antara drone dan Ground Control Station.</li><li>Melakukan monitoring konektivitas perangkat komunikasi dan membantu pengujian.</li><li>Mendukung dokumentasi konfigurasi serta hasil pengujian.</li></ul></div>
+        </article>
+        <article class="timeline-item">
+          <div class="timeline-date">MASA PERKULIAHAN</div>
+          <div class="timeline-content"><span class="tag">ACADEMIC</span><h3>Asisten Praktikum</h3><h4>Telkom University — Fakultas Ilmu Terapan</h4><p>Mendampingi praktikum Sisjarkom, Routing & Switching, Jaringan Lanjut, dan Layanan Jaringan.</p></div>
+        </article>
+        <article class="timeline-item">
+          <div class="timeline-date">2023 — 2026</div>
+          <div class="timeline-content"><span class="tag">EDUCATION</span><h3>D3 Teknologi Komputer</h3><h4>Telkom University</h4><p>IPK 3,67 / 4,00 · Cumlaude</p></div>
+        </article>
       </div>
-      <div class="exp-card reveal">
-        <div class="exp-top">
-          <div>
-            <div class="exp-role">Network Engineer Intern</div>
-            <div class="exp-org">Research and Development Center of Aviation and Avionics Technology (RA-ATAP)</div>
-          </div>
-          <div class="exp-period">Aug 2025 – May 2026</div>
-        </div>
-        <ul class="exp-list">
-          <li><i class="dot-icon"></i>Supported the development and integration of communication and monitoring systems for research activities.</li>
-          <li><i class="dot-icon"></i>Integrated telemetry and monitoring components involving ESP32, LoRa, Pixhawk, MAVLink, and SiK Radio.</li>
-          <li><i class="dot-icon"></i>Performed system testing, troubleshooting, and analysis of data transmission issues.</li>
-          <li><i class="dot-icon"></i>Analyzed telemetry data and technical test results to evaluate system reliability.</li>
-          <li><i class="dot-icon"></i>Worked with Python, LoRa, ESP32, and networking technologies to support data collection, monitoring, and system integration.</li>
-          <li><i class="dot-icon"></i>Documented system configurations, testing results, and troubleshooting procedures while collaborating with technical teams.</li>
-        </ul>
-        <div class="exp-tags">
-          <span class="tech-tag">ESP32</span><span class="tech-tag">LoRa</span><span class="tech-tag">Python</span>
-          <span class="tech-tag">Telemetry</span><span class="tech-tag">Networking</span><span class="tech-tag">Troubleshooting</span>
-        </div>
+    </section>
+
+    <section class="section projects-section" id="projects">
+      <div class="section-label">03 / SELECTED PROJECTS</div>
+      <div class="section-heading"><h2>Hal yang pernah <span>saya bangun.</span></h2><p>Beberapa proyek untuk menerapkan pengetahuan pemrograman, database, dan teknologi jaringan.</p></div>
+      <div class="project-grid">
+        <article class="project-card project-featured">
+          <div class="project-art art-web"><div class="browser"><div class="browser-dots">● ● ●</div><div class="browser-body"><div class="mock-sidebar"></div><div class="mock-content"><i></i><i></i><i></i><div class="mock-table"></div></div></div></div></div>
+          <div class="project-info"><div class="project-type">WEB APPLICATION · PHP / MYSQL</div><h3>Web Management System</h3><p>Aplikasi pengelolaan informasi dan pengguna dengan autentikasi, dashboard, pencarian, filter, serta pembagian hak akses Admin dan Staff.</p><div class="tech-list"><span>PHP</span><span>MySQL</span><span>HTML/CSS</span><span>JavaScript</span></div><a class="project-link" href="https://github.com/agungpurnamahidayat" target="_blank" rel="noreferrer">GitHub Profile ↗</a></div>
+        </article>
+        <article class="project-card">
+          <div class="project-art art-crud"><div class="crud-window"><div class="crud-head">MIE AMIN <small>MANAGEMENT</small></div><div class="crud-row"></div><div class="crud-row short"></div><div class="crud-row"></div><div class="crud-button">+ Tambah Data</div></div></div>
+          <div class="project-info"><div class="project-type">DATABASE APPLICATION</div><h3>Mie Amin — CRUD App</h3><p>Proyek aplikasi pengelolaan data untuk menerapkan operasi Create, Read, Update, dan Delete dengan database.</p><div class="tech-list"><span>PHP</span><span>MySQL</span><span>CRUD</span></div><a class="project-link" href="https://github.com/agungpurnamahidayat" target="_blank" rel="noreferrer">GitHub Profile ↗</a></div>
+        </article>
+        <article class="project-card">
+          <div class="project-art art-network"><div class="network-node node-a">TX</div><div class="network-node node-b">RX</div><div class="network-line"></div><div class="signal signal-a">〰</div><div class="signal signal-b">〰</div></div>
+          <div class="project-info"><div class="project-type">NETWORKING · IOT</div><h3>Adaptive Telemetry System</h3><p>Proyek tugas akhir tentang sistem antena telemetri adaptif berbasis ESP32 dan LoRa untuk memantau kualitas komunikasi drone.</p><div class="tech-list"><span>ESP32</span><span>LoRa</span><span>Python</span><span>Telemetry</span></div><a class="project-link" href="https://github.com/agungpurnamahidayat/adaptive-telemetry-system" target="_blank" rel="noreferrer">View Repository ↗</a></div>
+        </article>
       </div>
-    </div>
-  </section>
+      <p class="project-note">Catatan: tautan GitHub pada kartu proyek dapat diarahkan ke repository masing-masing setelah repository dipublikasikan.</p>
+    </section>
 
-  <!-- EDUCATION -->
-  <section id="education">
-    <div class="wrap">
-      <div class="section-head reveal">
-        <div class="eyebrow"><span class="bars"><i></i><i></i><i></i><i></i></span> Education</div>
-        <h2>Academic background</h2>
-      </div>
-      <div class="edu-card reveal">
-        <div class="edu-left">
-          <h3>Telkom University</h3>
-          <div class="deg">D3 Teknologi Komputer (Computer Engineering Technology)</div>
-          <p class="desc">D3 Computer Technology program with hands-on coursework and projects in programming, databases, web development, computer networking, microcontrollers, IoT, and data communication.</p>
-        </div>
-        <div class="edu-right">
-          <div class="period">Aug 2023 – Jul 2026</div>
-          <div class="gpa">3.67<small>/ 4.00 GPA · Cum Laude</small></div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- PROJECTS -->
-  <section id="projects">
-    <div class="wrap">
-      <div class="section-head reveal">
-        <div class="eyebrow"><span class="bars"><i></i><i></i><i></i><i></i></span> Projects</div>
-        <h2>Selected work</h2>
-        <p class="sub">From web applications and computer vision to telemetry and embedded IoT systems — click any card for details.</p>
-      </div>
-
-      <!-- Featured project -->
-      <div class="featured-project reveal">
-        <div class="fp-top">
-          <span class="fp-flag">Featured Project</span>
-        </div>
-        <h3 class="fp-title">Adaptive Telemetry Communication System for Drone Infrastructure Monitoring</h3>
-        <p class="fp-desc">Designed and implemented an adaptive telemetry communication system for drone-based infrastructure monitoring using ESP32 and LoRa SX1278 modules.</p>
-
-        <div class="fp-body">
-          <ul class="fp-list">
-            <li><i class="dot-icon"></i>Developed an adaptive antenna switching mechanism based on received signal strength (RSSI) to improve telemetry communication reliability.</li>
-            <li><i class="dot-icon"></i>Implemented dual LoRa communication paths and evaluated communication performance using RSSI, SNR, delay, packet loss, and reliability metrics.</li>
-            <li><i class="dot-icon"></i>Developed a Python-based data logging system to collect and store telemetry data in CSV format for further analysis.</li>
-            <li><i class="dot-icon"></i>Analyzed telemetry data using Pandas and created comparative graphs to evaluate communication performance between antenna configurations and the adaptive switching approach.</li>
-            <li><i class="dot-icon"></i>Conducted communication testing at multiple distances to evaluate system performance and reliability.</li>
-          </ul>
-          <div class="pipeline">
-            <div class="pipeline-title">System &amp; Data Flow</div>
-            <div class="pipeline-flow">
-              <span class="pipeline-step">ESP32 + LoRa</span><span class="pipeline-arrow">→</span>
-              <span class="pipeline-step">Telemetry Data</span><span class="pipeline-arrow">→</span>
-              <span class="pipeline-step">Python</span><span class="pipeline-arrow">→</span>
-              <span class="pipeline-step">CSV</span><span class="pipeline-arrow">→</span>
-              <span class="pipeline-step">Pandas</span><span class="pipeline-arrow">→</span>
-              <span class="pipeline-step">Data Analysis</span><span class="pipeline-arrow">→</span>
-              <span class="pipeline-step">Comparative Graphs</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="exp-tags" style="margin-top:22px;">
-          <span class="tech-tag">ESP32</span><span class="tech-tag">LoRa SX1278</span><span class="tech-tag">Python</span>
-          <span class="tech-tag">Pandas</span><span class="tech-tag">Matplotlib</span><span class="tech-tag">CSV</span>
-          <span class="tech-tag">Arduino / C++</span><span class="tech-tag">Telemetry</span>
-          <span class="tech-tag">Networking</span><span class="tech-tag">Data Analysis</span>
-        </div>
-
-        <div class="placeholder-box">
-          <span class="placeholder-chip"><i data-lucide="image" style="width:13px;height:13px;"></i> Project visual</span>
-          <span class="placeholder-chip"><i data-lucide="git-branch" style="width:13px;height:13px;"></i> System diagram</span>
-          <span class="placeholder-chip"><i data-lucide="camera" style="width:13px;height:13px;"></i> Testing photos</span>
-          <span class="placeholder-chip"><i data-lucide="bar-chart-2" style="width:13px;height:13px;"></i> Test graphs</span>
-          <span class="placeholder-chip"><i data-lucide="github" style="width:13px;height:13px;"></i> https://github.com/agungpurnamahidayat</span>
-          <span class="placeholder-chip"><i data-lucide="play" style="width:13px;height:13px;"></i> Demo video</span>
-        </div>
-      </div>
-
-      <!-- Other project cards -->
-      <div class="project-grid" id="projectGrid"></div>
-    </div>
-  </section>
-
-  <!-- SKILLS -->
-  <section id="skills">
-    <div class="wrap">
-      <div class="section-head reveal">
-        <div class="eyebrow"><span class="bars"><i></i><i></i><i></i><i></i></span> Skills</div>
-        <h2>Technical support &amp; development toolkit</h2>
-        <p class="sub">Focused on technical support, troubleshooting, networking, systems, and application development, supported by database, API, and software engineering fundamentals.</p>
-      </div>
+    <section class="section skills-section" id="skills">
+      <div class="section-label">04 / SKILLS</div>
+      <div class="section-heading"><h2>Perangkat yang <span>saya gunakan.</span></h2><p>Pengetahuan dan tools yang pernah dipelajari atau digunakan dalam proyek.</p></div>
       <div class="skills-grid">
-
-        <div class="skill-cat reveal">
-          <div class="skill-cat-head"><span class="ic"><i data-lucide="code-2" style="width:17px;height:17px;"></i></span><h3>Programming</h3></div>
-          <div class="skill-badges">
-            <span class="skill-badge">Python</span><span class="skill-badge">PHP</span>
-            <span class="skill-badge">JavaScript</span><span class="skill-badge">C/C++</span>
-          </div>
-        </div>
-
-        <div class="skill-cat reveal">
-          <div class="skill-cat-head"><span class="ic"><i data-lucide="globe" style="width:17px;height:17px;"></i></span><h3>Web Development</h3></div>
-          <div class="skill-badges">
-            <span class="skill-badge">Flask</span><span class="skill-badge">Laravel</span>
-            <span class="skill-badge">RESTful API</span><span class="skill-badge">HTML</span>
-            <span class="skill-badge">CSS</span><span class="skill-badge">Bootstrap</span>
-            <span class="skill-badge">Tailwind CSS</span>
-          </div>
-        </div>
-
-        <div class="skill-cat reveal">
-          <div class="skill-cat-head"><span class="ic"><i data-lucide="database" style="width:17px;height:17px;"></i></span><h3>Database &amp; Tools</h3></div>
-          <div class="skill-badges">
-            <span class="skill-badge">MySQL</span><span class="skill-badge">MongoDB</span>
-            <span class="skill-badge">Git</span><span class="skill-badge">GitHub</span>
-            <span class="skill-badge">Postman</span><span class="skill-badge">VS Code</span>
-          </div>
-        </div>
-
-        <div class="skill-cat reveal">
-          <div class="skill-cat-head"><span class="ic"><i data-lucide="settings" style="width:17px;height:17px;"></i></span><h3>IT Support &amp; Software Engineering</h3></div>
-          <div class="skill-badges">
-            <span class="skill-badge">Technical Support</span><span class="skill-badge">Troubleshooting</span><span class="skill-badge">API Integration</span><span class="skill-badge">System Integration</span>
-            <span class="skill-badge">Debugging</span><span class="skill-badge">Testing</span><span class="skill-badge">Hardware Troubleshooting</span>
-            <span class="skill-badge">Problem Solving</span><span class="skill-badge">Technical Documentation</span>
-          </div>
-        </div>
-
-        <div class="skill-cat reveal">
-          <div class="skill-cat-head"><span class="ic"><i data-lucide="network" style="width:17px;height:17px;"></i></span><h3>Networking &amp; Infrastructure</h3></div>
-          <div class="skill-badges">
-            <span class="skill-badge">Windows</span><span class="skill-badge">Linux</span><span class="skill-badge">PC Troubleshooting</span><span class="skill-badge">TCP/IP</span><span class="skill-badge">VLAN</span><span class="skill-badge">OSPF</span>
-            <span class="skill-badge">DHCP</span><span class="skill-badge">DNS</span><span class="skill-badge">NAT</span>
-            <span class="skill-badge">Firewall</span><span class="skill-badge">MikroTik</span><span class="skill-badge">Cisco Networking</span>
-          </div>
-        </div>
-
-        <div class="skill-cat reveal">
-          <div class="skill-cat-head"><span class="ic"><i data-lucide="radio" style="width:17px;height:17px;"></i></span><h3>IoT &amp; Data Analysis</h3></div>
-          <div class="skill-badges">
-            <span class="skill-badge">ESP32</span><span class="skill-badge">Arduino</span><span class="skill-badge">LoRa</span>
-            <span class="skill-badge">Telemetry</span><span class="skill-badge">Pandas</span><span class="skill-badge">Matplotlib</span>
-            <span class="skill-badge">CSV</span><span class="skill-badge">Data Visualization</span>
-          </div>
-        </div>
-
+        <div class="skill-group"><div class="skill-icon">⌁</div><h3>IT Support & Networking</h3><div class="skill-tags"><span>TCP/IP</span><span>LAN / WLAN</span><span>Cisco</span><span>MikroTik</span><span>Packet Tracer</span><span>Troubleshooting</span><span>Basic Cybersecurity</span></div></div>
+        <div class="skill-group"><div class="skill-icon">&lt;/&gt;</div><h3>Programming & Database</h3><div class="skill-tags"><span>Python</span><span>PHP</span><span>JavaScript</span><span>HTML</span><span>CSS</span><span>SQL / MySQL</span><span>Git</span></div></div>
+        <div class="skill-group"><div class="skill-icon">⌘</div><h3>IoT & Tools</h3><div class="skill-tags"><span>ESP32</span><span>Arduino</span><span>LoRa</span><span>Mission Planner</span><span>Microsoft Excel</span><span>VS Code</span><span>XAMPP</span></div></div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- PRACTICUM -->
-  <section id="practicum">
-    <div class="wrap">
-      <div class="section-head reveal">
-        <div class="eyebrow"><span class="bars"><i></i><i></i><i></i><i></i></span> Practicum Experience</div>
-        <h2>Practicum Assistant</h2>
-      </div>
-      <div class="practicum-wrap">
-        <div class="practicum-desc reveal">
-          <p>Practicum Assistant with hands-on experience supporting laboratory sessions in computer networking, network services, advanced networking, network security, routing and switching, digital systems, electronics, digital signal processing, and computer interfaces and peripherals.</p>
-          <p>Responsibilities included assisting students during practical sessions, explaining technical concepts, troubleshooting laboratory setups, and supporting the implementation of networking and technical experiments.</p>
-        </div>
-        <div class="course-grid reveal">
-          <div class="course-chip"><i class="dot-icon"></i>Computer Networks / Sistem Jaringan Komputer</div>
-          <div class="course-chip"><i class="dot-icon"></i>Network Services / Layanan Jaringan</div>
-          <div class="course-chip"><i class="dot-icon"></i>Advanced Networking / Jaringan Lanjut</div>
-          <div class="course-chip"><i class="dot-icon"></i>Network Security / Keamanan Jaringan</div>
-          <div class="course-chip"><i class="dot-icon"></i>Routing and Switching</div>
-          <div class="course-chip"><i class="dot-icon"></i>Basic Electronics / Elektronika Dasar</div>
-          <div class="course-chip"><i class="dot-icon"></i>Digital Signal Processing</div>
-          <div class="course-chip"><i class="dot-icon"></i>Interface, Peripherals &amp; Communication</div>
-          <div class="course-chip"><i class="dot-icon"></i>Digital Systems / Sistem Digital</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ACHIEVEMENT / HKI -->
-  <section id="achievement">
-    <div class="wrap">
-      <div class="section-head reveal">
-        <div class="eyebrow"><span class="bars"><i></i><i></i><i></i><i></i></span> Achievement &amp; Intellectual Property</div>
-        <h2>Recognized work</h2>
-      </div>
-      <div class="achieve-card reveal">
-        <div class="achieve-left">
-          <div class="achieve-icon"><i data-lucide="award" style="width:24px;height:24px;"></i></div>
-          <div>
-            <div class="achieve-type">Intellectual Property</div>
-            <h3>Application / Intellectual Property for Crack Monitoring Application</h3>
-            <p>Registered intellectual property for an application developed for crack monitoring. Official registration details to be added upon document verification.</p>
-          </div>
-        </div>
-        <a href="#contact" class="btn btn-ghost btn-sm"><i data-lucide="file-text" style="width:15px;height:15px;"></i> Document available on request</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- FEATURED -->
-  <section id="featured">
-    <div class="wrap">
-      <div class="section-head reveal">
-        <div class="eyebrow"><span class="bars"><i></i><i></i><i></i><i></i></span> Featured</div>
-        <h2>Quick links</h2>
-      </div>
-      <div class="feat-grid">
-        <a href="https://github.com/agungpurnamahidayat" class="feat-card reveal" target="_blank" rel="noopener">
-          <div class="fc-thumb"><i data-lucide="github" style="width:22px;height:22px;"></i></div>
-          <h4>GitHub</h4>
-          <p>Code repositories and project source.</p>
-          <div class="fc-link">Visit profile <i data-lucide="arrow-up-right" style="width:13px;height:13px;"></i></div>
-        </a>
-        <a href="#home" class="feat-card reveal">
-          <div class="fc-thumb"><i data-lucide="layout" style="width:22px;height:22px;"></i></div>
-          <h4>Portfolio</h4>
-          <p>This website — a full overview of my software, systems, and project experience.</p>
-          <div class="fc-link">Back to top <i data-lucide="arrow-up-right" style="width:13px;height:13px;"></i></div>
-        </a>
-        <a href="#projects" class="feat-card reveal">
-          <div class="fc-thumb"><i data-lucide="radio-tower" style="width:22px;height:22px;"></i></div>
-          <h4>Adaptive Telemetry Project</h4>
-          <p>ESP32 + LoRa telemetry system with adaptive antenna switching.</p>
-          <div class="fc-link">See project <i data-lucide="arrow-up-right" style="width:13px;height:13px;"></i></div>
-        </a>
-        <a href="#projects" class="feat-card reveal">
-          <div class="fc-thumb"><i data-lucide="waves" style="width:22px;height:22px;"></i></div>
-          <h4>Crack Detection Drone Application</h4>
-          <p>Drone-based infrastructure crack detection using YOLOv8 and computer vision.</p>
-          <div class="fc-link">See project <i data-lucide="arrow-up-right" style="width:13px;height:13px;"></i></div>
-        </a>
-        <a href="#achievement" class="feat-card reveal">
-          <div class="fc-thumb"><i data-lucide="award" style="width:22px;height:22px;"></i></div>
-          <h4>HKI / IP</h4>
-          <p>Registered intellectual property for a crack monitoring application.</p>
-          <div class="fc-link">View details <i data-lucide="arrow-up-right" style="width:13px;height:13px;"></i></div>
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <!-- CONTACT -->
-  <section id="contact">
-    <div class="wrap">
-      <div class="section-head reveal">
-        <div class="eyebrow"><span class="bars"><i></i><i></i><i></i><i></i></span> Contact</div>
-        <h2>Let's talk</h2>
-      </div>
-      <div class="contact-grid">
-        <div class="contact-info reveal">
-          <p class="lead">Interested in working together or discussing an IT support or software project? Feel free to contact me.</p>
-          <div class="contact-item">
-            <div class="ci-icon"><i data-lucide="mail" style="width:17px;height:17px;"></i></div>
-            <div><div class="ci-label">Email</div><div class="ci-value"><a href="mailto:agungpurnahidayat@gmail.com">agungpurnahidayat@gmail.com</a></div></div>
-          </div>
-          <div class="contact-item">
-            <div class="ci-icon"><i data-lucide="linkedin" style="width:17px;height:17px;"></i></div>
-            
-          </div>
-          <div class="contact-item">
-            <div class="ci-icon"><i data-lucide="github" style="width:17px;height:17px;"></i></div>
-            <div><div class="ci-label">GitHub</div><div class="ci-value"><a href="https://github.com/agungpurnamahidayat" target="_blank" rel="noopener">github.com/agungpurnamahidayat</a></div></div>
-          </div>
-        </div>
-
-        <form class="contact-form reveal" id="contactForm">
-          <div class="form-row">
-            <label for="cf-name">Name</label>
-            <input type="text" id="cf-name" name="name" placeholder="Your name" required />
-          </div>
-          <div class="form-row">
-            <label for="cf-email">Email</label>
-            <input type="email" id="cf-email" name="email" placeholder="you@example.com" required />
-          </div>
-          <div class="form-row">
-            <label for="cf-message">Message</label>
-            <textarea id="cf-message" name="message" rows="5" placeholder="Tell me a bit about the opportunity or project..." required></textarea>
-          </div>
-          <button type="submit" class="btn btn-primary" style="width:100%;">Send Message</button>
-          <p class="form-note">This form opens your email client via mailto — no backend is connected yet.</p>
-          <p class="form-status" id="formStatus">Your email client should now be open with this message pre-filled.</p>
-        </form>
-      </div>
-    </div>
-  </section>
-
-</main>
-
-<footer>
-  <div class="wrap footer-wrap">
-    <p class="fnote">© 2026 Agung Purnama Hidayat. Built with clarity, not clutter.</p>
-    <div class="footer-socials">
-      
-      <a href="https://github.com/agungpurnamahidayat" class="icon-link" aria-label="GitHub" target="_blank" rel="noopener"><i data-lucide="github" style="width:15px;height:15px;"></i></a>
-      <a href="mailto:agungpurnahidayat@gmail.com" class="icon-link" aria-label="Email"><i data-lucide="mail" style="width:15px;height:15px;"></i></a>
-    </div>
-  </div>
-</footer>
-
-<!-- PROJECT DETAIL MODAL -->
-<div class="modal-overlay" id="modalOverlay">
-  <div class="modal">
-    <button class="modal-close" id="modalClose" aria-label="Close"><i data-lucide="x" style="width:16px;height:16px;"></i></button>
-    <h3 id="modalTitle"></h3>
-    <p class="m-desc" id="modalDesc"></p>
-    <div class="modal-gallery" id="modalGallery"></div>
-    <ul class="m-list" id="modalList"></ul>
-    <div class="m-tags" id="modalTags"></div>
-    <div class="placeholder-box" style="margin-top:20px;">
-      <span class="placeholder-chip"><i data-lucide="github" style="width:13px;height:13px;"></i> https://github.com/agungpurnamahidayat</span>
-    </div>
-  </div>
-</div>
-
-<script>
-  const PROJECTS = [
-    {
-      title: "Crack Detection Drone Application",
-      desc: "Developed a drone-based application for detecting and monitoring infrastructure cracks from aerial imagery.",
-      thumb: "DRONE / CRACK / YOLOv8",
-      list: [
-        "Implemented YOLOv8 for automated crack detection from drone camera footage.",
-        "Developed a Python-based application to process and analyze video/image streams.",
-        "Integrated OpenCV for image and video processing and visualization of detected cracks.",
-        "Designed the application to support infrastructure inspection and crack monitoring."
-      ],
-      tags: ["Python", "YOLOv8", "OpenCV", "Computer Vision", "Drone Technology"]
-    },
-    {
-      title: "Adaptive Telemetry Communication System",
-      desc: "Designed and implemented an adaptive telemetry communication system for drone-based infrastructure monitoring using ESP32 and LoRa SX1278.",
-      thumb: "ESP32 / LORA / TELEMETRY",
-      list: [
-        "Developed an adaptive antenna switching mechanism based on RSSI to improve telemetry communication reliability.",
-        "Evaluated RSSI, SNR, delay, packet loss, and reliability during communication testing.",
-        "Developed Python-based data logging and analyzed telemetry results using Pandas and Matplotlib.",
-        "Tested communication performance at multiple distances and compared antenna configurations."
-      ],
-      tags: ["ESP32", "LoRa SX1278", "Python", "Pandas", "Matplotlib", "Telemetry"]
-    },
-    {
-      title: "Smart Waste Level Monitoring and Alert System",
-      desc: "Developed an IoT-based waste monitoring system to detect waste container fill levels and provide visual and mobile notifications.",
-      thumb: "IOT / SENSOR / BLUETOOTH",
-      images: ["assets/img/smart-waste-hardware.png", "assets/img/smart-waste-app.png"],
-      list: [
-        "Used HC-SR04 ultrasonic sensor to measure waste level.",
-        "Implemented WS2812 NeoPixel and LCD I2C for local status visualization.",
-        "Integrated Bluetooth communication with an Android application developed using MIT App Inventor."
-      ],
-      tags: ["ATmega328P", "HC-SR04", "WS2812 NeoPixel", "LCD I2C", "Bluetooth", "MIT App Inventor", "C/C++"]
-    },
-    {
-      title: "Automatic Parking Monitoring System",
-      desc: "Developed an automatic parking monitoring system using ultrasonic sensors to detect vehicle presence and monitor parking availability.",
-      thumb: "PARKING / ULTRASONIC",
-      images: ["assets/img/parking-app.png"],
-      list: [
-        "Implemented ultrasonic-based distance measurement for detecting vehicle occupancy.",
-        "Developed a system to display parking status and communicate monitoring data to an Android application via Bluetooth.",
-        "Integrated microcontroller hardware, sensors, Bluetooth communication, and mobile application components."
-      ],
-      tags: ["Arduino", "Ultrasonic Sensor", "Bluetooth", "MIT App Inventor", "C/C++"]
-    },
-    {
-      title: "Ball Balancing System using PID Control",
-      desc: "Developed a ball balancing system using PID control to maintain the position of a ball on a platform.",
-      thumb: "PID / CONTROL SYSTEM",
-      images: ["assets/img/pid-ball.png"],
-      list: [
-        "Implemented PID control to minimize position error and stabilize the ball.",
-        "Integrated sensors, microcontroller control, and actuator mechanisms to create a closed-loop control system.",
-        "Tuned PID parameters and evaluated system response to improve stability and positioning accuracy."
-      ],
-      tags: ["Arduino", "C/C++", "PID Control", "Sensors", "Control Systems"]
-    }
-  ];
-
-  const grid = document.getElementById('projectGrid');
-  PROJECTS.forEach((p, idx) => {
-    const card = document.createElement('div');
-    card.className = 'project-card reveal';
-    const thumbContent = p.images && p.images.length
-      ? `<img src="${p.images[0]}" alt="${p.title}" loading="lazy" />`
-      : p.thumb;
-    card.innerHTML = `
-      <div class="pc-thumb">${thumbContent}</div>
-      <h3>${p.title}</h3>
-      <p>${p.desc}</p>
-      <div class="pc-tags">${p.tags.slice(0,4).map(t => `<span>${t}</span>`).join('')}</div>
-      <div class="pc-more">View details <i data-lucide="arrow-up-right" style="width:13px;height:13px;"></i></div>
-    `;
-    card.addEventListener('click', () => openModal(idx));
-    grid.appendChild(card);
-  });
-
-  const modalOverlay = document.getElementById('modalOverlay');
-  const modalTitle = document.getElementById('modalTitle');
-  const modalDesc = document.getElementById('modalDesc');
-  const modalList = document.getElementById('modalList');
-  const modalTags = document.getElementById('modalTags');
-  const modalGallery = document.getElementById('modalGallery');
-
-  function openModal(idx){
-    const p = PROJECTS[idx];
-    modalTitle.textContent = p.title;
-    modalDesc.textContent = p.desc;
-    modalGallery.innerHTML = (p.images && p.images.length)
-      ? p.images.map(src => `<img src="${src}" alt="${p.title}" loading="lazy" />`).join('')
-      : '';
-    modalList.innerHTML = p.list.map(li => `<li><i class="dot-icon"></i>${li}</li>`).join('');
-    modalTags.innerHTML = p.tags.map(t => `<span class="tech-tag">${t}</span>`).join('');
-    modalOverlay.classList.add('open');
-    document.body.style.overflow = 'hidden';
-  }
-  function closeModal(){
-    modalOverlay.classList.remove('open');
-    document.body.style.overflow = '';
-  }
-  document.getElementById('modalClose').addEventListener('click', closeModal);
-  modalOverlay.addEventListener('click', (e) => { if (e.target === modalOverlay) closeModal(); });
-  document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeModal(); });
-
-  // Mobile menu
-  const hamburgerBtn = document.getElementById('hamburgerBtn');
-  const mobileMenu = document.getElementById('mobileMenu');
-  hamburgerBtn.addEventListener('click', () => {
-    const isOpen = mobileMenu.classList.toggle('open');
-    hamburgerBtn.setAttribute('aria-expanded', isOpen);
-    hamburgerBtn.innerHTML = isOpen ? '<i data-lucide="x"></i>' : '<i data-lucide="menu"></i>';
-    if (window.lucide) lucide.createIcons();
-  });
-  mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
-    mobileMenu.classList.remove('open');
-    hamburgerBtn.setAttribute('aria-expanded', false);
-    hamburgerBtn.innerHTML = '<i data-lucide="menu"></i>';
-    if (window.lucide) lucide.createIcons();
-  }));
-
-  // Active nav link on scroll
-  const sections = document.querySelectorAll('main section[id]');
-  const navAnchors = document.querySelectorAll('.nav-links a');
-  const setActive = () => {
-    let current = '';
-    sections.forEach(sec => {
-      const top = sec.offsetTop - 120;
-      if (window.scrollY >= top) current = sec.id;
-    });
-    navAnchors.forEach(a => {
-      a.classList.toggle('active', a.getAttribute('href') === '#' + current);
-    });
-  };
-  window.addEventListener('scroll', setActive);
-  setActive();
-
-  // Reveal on scroll
-  const revealEls = document.querySelectorAll('.reveal');
-  const io = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting){ entry.target.classList.add('in'); io.unobserve(entry.target); }
-    });
-  }, { threshold: 0.12 });
-  revealEls.forEach(el => io.observe(el));
-
-  // Contact form -> mailto
-  const contactForm = document.getElementById('contactForm');
-  const formStatus = document.getElementById('formStatus');
-  contactForm.addEventListener('submit', (e) => {
-    e.preventDefault();
-    const name = document.getElementById('cf-name').value;
-    const email = document.getElementById('cf-email').value;
-    const message = document.getElementById('cf-message').value;
-    const subject = encodeURIComponent(`Portfolio inquiry from ${name}`);
-    const body = encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`);
-    window.location.href = `mailto:agungpurnahidayat@gmail.com?subject=${subject}&body=${body}`;
-    formStatus.classList.add('show');
-  });
-
-  if (window.lucide) lucide.createIcons();
-  window.addEventListener('load', () => { if (window.lucide) lucide.createIcons(); });
-</script>
-
+    <section class="section contact-section" id="contact">
+      <div class="section-label">05 / CONTACT</div>
+      <div class="contact-box"><div><p class="eyebrow">LET'S CONNECT</p><h2>Mari berdiskusi tentang<br><span>peluang dan teknologi.</span></h2><p class="contact-text">Saya terbuka untuk kesempatan di bidang IT Support, IT Infrastructure, Networking, dan pengembangan aplikasi.</p></div><div class="contact-actions"><a class="button button-primary" href="https://github.com/agungpurnamahidayat" target="_blank" rel="noreferrer">GitHub ↗</a><a class="button button-ghost" href="assets/CV_Agung_Purnama_Hidayat.pdf" download="CV_Agung_Purnama_Hidayat.pdf">Download CV ↓</a><a class="button button-ghost" href="mailto:agungphidayattt@gmail.com">Email ↗</a></div></div>
+    </section>
+  </main>
+  <footer><a class="brand" href="#home"><span class="brand-mark">A</span><span>AGUNG<span class="muted">.DEV</span></span></a><span>© <span id="year"></span> Agung Purnama Hidayat</span><a href="#home">Kembali ke atas ↑</a></footer>
+  <script src="script.js"></script>
 </body>
 </html>
